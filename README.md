@@ -1,2 +1,2 @@
-# atom-ngdocs-snippets
-A collection of ngdocs snippets for Atom
+# atom-ngdoc-snippets
+A collection of ngdoc snippets for Atom
