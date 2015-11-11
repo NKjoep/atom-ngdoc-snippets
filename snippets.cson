@@ -1,140 +1,11 @@
+#
+# ngdocs snippets
+# https://github.com/NKjoep/atom-ngdoc-snippets
+#
+# Author: Andrea D.
+#
+
 '.source.js':
-
-  'ngdocs-base':
-    'prefix': 'ngdocs-base'
-    'body': """
-      /**
-        * @ngdoc
-        * @name ${1}
-        * @description
-        * ${2}
-      **/
-    """
-
-  'ngdocs-dgeni':
-    'prefix': 'ngdocs-dgeni'
-    'body': """
-      * ${1:@directive - used for angular directives}
-      * ${2:@error - only used for minerr documentation}
-      * ${3:@event - used for events on objects \\(mostly services\\)}
-      * ${4:@filter - used for angular filters \\(although there may be one or two that use function\\)}
-      * ${5:@function - for global functions}
-      * ${6:@inputType - used for input element specific directives \\(such as input[checkbox]\\)}
-      * ${7:@method - used for methods on services and types \\(such as angular.Module, etc\\)}
-      * ${8:@module - instead of overview for modules}
-      * ${9:@object - generally used for services that are not straight functions}
-      * ${10:@overview - generally used for modules and ngdocs but also used for ng.$rootElement and angular.mock \\(should be objects?\\)}
-      * ${11:@property - generally used for properties on services but also used for angular.version}
-      * ${12:@service - instead of object/function for angular services}
-      * ${13:@serviceProvider - instead of function/object for angular service providers}
-      * ${14:@type - for constructors}
-    """
-
-  'ngdocs-directive':
-    'prefix': 'ngdocs-directive'
-    'body': """
-      /**
-        * @ngdoc directive
-        * @directive
-        * @name ${1:directiveName}
-        * ${3:@deprecated}
-        * ${4:@private}
-        *
-        * ${5:@restrict ${6:E}${7:A}${8:C}}
-        * ${9:@scope //directive isolated if present}
-        * ${10:@inputType}
-        *
-        * @description
-        * ${11://TODO: Describe ${1:directiveName}}
-        *
-        * ${12:@requires dep1,dep2,dep3...}
-        *
-        * ${13:@param {${14:type}\\} ${15:name} ${16:description}}
-        *
-      **/
-    """
-
-  'ngdocs-filter':
-    'prefix': 'ngdocs-filter'
-    'body': """
-      /**
-        * @ngdoc filter
-        * @filter
-        * @name ${1:directiveName}
-        * ${3:@deprecated}
-        * ${4:@private}
-        *
-        * @description
-        * ${12://TODO: Describe ${1:directiveName}}
-        *
-        * ${13:@requires dep1,dep2,dep3...}
-        *
-        * ${14:@param {${15:type}\\} ${16:name} ${17:description}}
-        *
-      **/
-    """
-
-  'ngdocs-method':
-    'prefix': 'ngdocs-method'
-    'body': """
-      /**
-        * @ngdoc method
-        * @name ${1:methodName}
-        * @methodOf ${2:module.ControllerName}
-        * ${3:@deprecated}
-        * ${4:@private}
-        *
-        * @description
-        * ${5://TODO: Describe ${1:methodName}}
-        *
-        * ${7:@param {${7:type}\\} ${8:name} ${9:description}}
-        * ${10:@returns {${11:type}\\} ${12:name} ${13:description}}
-      **/
-    """
-
-    'ngdocs-property':
-      'prefix': 'ngdocs-property'
-      'body': """
-        /**
-          * @ngdoc property
-          * @name ${1:propertyName}
-          * @methodOf ${2:module.ControllerName}
-          * ${3:@deprecated}
-          * ${4:@private}
-          *
-          * @description
-          * ${5://TODO: Describe ${1:propertyName}}
-          *
-          * ${7:@param {${7:type}\\} ${8:name} ${9:description}}
-          * ${10:@returns {${11:type}\\} ${12:name} ${13:description}}
-        **/
-      """
-
-  'ngdocs':
-    'prefix': 'ngdocs'
-    'body': """
-      /**
-        * @ngdoc ${1:controller|directive|factory|filter|method|property|service}
-        * @name ${2:name}
-        * ${3:@deprecated}
-        * ${4:@private}
-        * ${5:@methodOf ${6:module.ControllerName}}
-        * ${7:@restrict ${8:E}${9:A}${10:C}}
-        * ${11:@scope //directive isolated if present}
-        *
-        * @description
-        * ${12://TODO: Describe ${2:name}}
-        *
-        * ${13:@requires dep1,dep2,dep3...}
-        *
-        * ${14:@param {${15:type}\\} ${16:name} ${17:description}}
-        *
-        * ${18:@returns {${19:type}\\} ${20:name} ${21:description}}
-        *
-        * ${22:\\{@link ${23:module}:${24:name} ${24:name}\\}}
-      **/
-    """
-
   'ngdocs-full':
     'prefix': 'ngdocs-full'
     'body': """
@@ -174,4 +45,140 @@
         * ${36:\\{@link ${37:module}:${38:name} ${38:name}\\}}
         *
       **/
+    """
+
+  'ngdocs-angular-module':
+    'prefix': 'ngdocs-angular-module'
+    'body': """
+      /**
+        * @ngdoc object
+        * @name ${1:module.full.name}
+        * @module ${2:module.full}
+        * ${3:@requires ${4:other.module.name}}
+        *
+        * ${5:@description}
+        * The `${1:module}` module ${6:description}.
+        *
+      **/
+     """
+
+  'ngdocs-angular-controller':
+    'prefix': 'ngdocs-angular-controller'
+    'body': """
+      /**
+        * @ngdoc controller
+        * @name ${1:controller.full.name}
+        *
+        * ${2:@description}
+        * The `${1:controller}` controller ${6:description}.
+        *
+      **/
+     """
+
+  'ngdocs-angular-factory':
+    'prefix': 'ngdocs-angular-factory'
+    'body': """
+      /**
+        * @ngdoc service
+        * @name ${1:my.module}.${2:myFactory}
+        * @module ${1:my.module}
+        * @requires ${3:dependencies}
+        * ${4:@description}
+        *
+        * The `${2:factory}` factory ${5:description}.
+        *
+      **/
+    """
+
+  'ngdocs-angular-directive':
+    'prefix': 'ngdocs-angular-directive'
+    'body': """
+    /**
+      * @ngdoc directive
+      * @name ${1:my.module}.${2:myDirective}
+      * @module ${1:my.module}
+      * @restrict ${3:EA}
+      * @scope //directive isolated if present
+      * ${4:@description}
+      *
+      * The `${1:module}.${2:myDirective}` directive ${7:description}.
+      *
+    **/
+    """
+
+  'ngdocs-angular-service':
+    'prefix': 'ngdocs-angular-service'
+    'body': """
+      /**
+        * @ngdoc service
+        * @name ${1:myModule}.${2:myServiceName}
+        * @module ${1:module}
+        * @requires ${3:dependencies}
+        * ${4:@description}
+        *
+        * ${5:The `${2:myServiceName}` service description.}
+        *
+      **/
+    """
+
+  'ngdocs-angular-filter':
+    'prefix': 'ngdocs-angular-filter'
+    'body': """
+    /**
+      * @ngdoc filter
+      * @name ${2:filter}
+      * @module ${1:module}
+      * @requires ${3:dependencies}
+      * ${4:@description}
+      *
+      * The `${2:filter}` filter ${5:description}.
+      *
+    **/
+    """
+
+  'ngdocs-angular-method':
+    'prefix': 'ngdocs-angular-method'
+    'body': """
+      /**
+        * @ngdoc method
+        * @name ${1:module}#${2:methodname}
+        * @methodOf ${1:module}
+        * ${3:@deprecated}
+        * ${4:@private}
+        *
+        * @description
+        * ${5:Descpription for ${2:methodname} method within ${1:module}}
+        *
+        * ${6:@param {${7:type}\\} ${8:name} ${9:description}}
+        * ${10:@returns {${11:type}\\} ${12:name} ${13:description}}
+      **/
+    """
+
+  'ngdocs-angular-property':
+    'prefix': 'ngdocs-angular-property'
+    'body': """
+      /**
+        * @ngdoc property
+        * @name ${1:module}#${2:propertyName}
+        * @propertyOf ${1:module}
+        * ${3:@private}
+
+        * @description
+        * ${4:Descpription for ${2:propertyName} method within ${1:module}}
+        *
+        * ${5:@returns {${6:type}\\} ${7:name} ${8:description}}
+      **/
+    """
+
+  'ngdocs-angular-event':
+    'prefix': 'ngdocs-angular-event'
+    'body': """
+      /**
+        * @ngdoc event
+        * @name ${1:module.full.name}#${2:eventName}
+        * @eventOf ${1:module.full.name}
+        * @eventType ${3:broadcast? local?}
+        * @description
+        * ${4:Describe the `${2:eventName}`}
+      */
     """
